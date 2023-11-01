@@ -30,13 +30,13 @@ const (
 func main() {
 	i2c, err := i2c.New(i2cAddress, i2cDevice)
 	if err != nil {
-		log.Printf("error: failed starting i2c with address - %w", err)
+		log.Printf("error: failed starting i2c with address - %s", err.Error())
 		return
 	}
 
 	driver, err := pca9685.New(i2c, nil)
 	if err != nil {
-		log.Printf("error: failed getting servo driver - %w", err)
+		log.Printf("error: failed getting servo driver - %s", err.Error())
 		return
 	}
 
