@@ -61,4 +61,6 @@ func main() {
 	time.Sleep(2 * time.Second)
 
 	log.Printf("center: %0.2f\n", 0.5)
+	steerServo.Fraction(0.5)
+	time.Sleep(2 * time.Second)
 }
