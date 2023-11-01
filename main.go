@@ -46,11 +46,17 @@ func main() {
 		MaxPulse: float32(steerMaxPulse),
 	})
 
-	// esc := driver.ServoNew(escChannel, &pca9685.ServOptions{
-	// 	AcRange:  AcRange,
-	// 	MinPulse: float32(escMinPulse),
-	// 	MaxPulse: float32(escMaxPulse),
-	// })
+	esc := driver.ServoNew(escChannel, &pca9685.ServOptions{
+		AcRange:  AcRange,
+		MinPulse: float32(escMinPulse),
+		MaxPulse: float32(escMaxPulse),
+	})
+	log.Printf("center steering: %0.2f\n", 0.5)
+	steerServo.Fraction(0.5)
+
+	log.Printf("center esc: %0.2f\n", 0.5)
+	esc.Fraction(0.5)
+	time.Sleep(2 * time.Second)
 
 	log.Printf("turning left: %0.2f\n", 0.25)
 	steerServo.Fraction(0.25)
@@ -63,4 +69,9 @@ func main() {
 	log.Printf("center: %0.2f\n", 0.5)
 	steerServo.Fraction(0.5)
 	time.Sleep(2 * time.Second)
+
+	log.Printf("slow forward: %0.2f\n", 0.6)
+	esc.Fraction(0.6)
+	time.Sleep(2 * time.Second)
+
 }
