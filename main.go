@@ -70,8 +70,15 @@ func main() {
 	steerServo.Fraction(0.5)
 	time.Sleep(2 * time.Second)
 
-	log.Printf("slow forward: %0.2f\n", 0.6)
-	esc.Fraction(0.6)
-	time.Sleep(2 * time.Second)
+	log.Printf("full forward: %0.2f\n", 1.0)
+	esc.Fraction(1.0)
+	time.Sleep(5 * time.Second)
 
+	log.Printf("full reverse: %0.2f\n", 0)
+	esc.Fraction(0)
+	time.Sleep(5 * time.Second)
+
+	log.Printf("center esc")
+	esc.Fraction(0.5)
+	time.Sleep(5 * time.Second)
 }
